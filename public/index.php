@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-node Arduino system</title>
+    <title>Višečvorni Arduino sistem</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -68,21 +68,21 @@
 </head>
 <body>
 
-    <h1>Multi-node Arduino system</h1>
+    <h1>Višečvorni Arduino sistem</h1>
 
     <div class="container">
         <div class="card esp">
-            <h2>Flexibility Load</h2>
+            <h2>Stepen savijenosti</h2>
             <div class="sensor-model">ESP8266MOD</div>
             <div class="voltage-display"><span id="esp-val">0</span><span class="unit">%</span></div>
-            <div class="status">● Flex Sensor Tracking</div>
+            <div class="status">● Praćenje senzora savijanja</div>
         </div>
 
         <div class="card teensy">
-            <h2>Applied Pressure</h2>
+            <h2>Primenjeni pritisak</h2>
             <div class="sensor-model">TEENSY 3.6</div>
             <div class="voltage-display"><span id="teensy-val">0</span><span class="unit">%</span></div>
-            <div class="status" style="color: #2980b9;">● Force Sensor Tracking</div>
+            <div class="status" style="color: #2980b9;">● Praćenje senzora sile</div>
         </div>
     </div>
 
@@ -98,7 +98,7 @@
         async function fetchSensorData() {
             try {
                 const response = await fetch(endpoint);
-                if (!response.ok) throw new Error('Network error response');
+                if (!response.ok) throw new Error('Greška pri komunikaciji sa serverom!');
                 
                 const data = await response.json();
                 
@@ -108,7 +108,7 @@
                 document.getElementById('esp-val').innerText = espPercent.toFixed(0);
                 document.getElementById('teensy-val').innerText = teensyPercent.toFixed(0);
             } catch (error) {
-                console.error('Error hitting ESP8266 API endpoint:', error);
+                console.error('Greška pri pristupanju ESP8266 API endpoint-u:', error);
             }
         }
 
