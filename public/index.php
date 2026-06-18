@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Višečvorni Arduino sistem</title>
+    <title>Multi-node Arduino sistem</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -68,7 +68,7 @@
 </head>
 <body>
 
-    <h1>Višečvorni Arduino sistem</h1>
+    <h1>Multi-node Arduino sistem</h1>
 
     <div class="container">
         <div class="card esp">
