@@ -2,12 +2,12 @@
 
 ## 📝 Opis projekta
 
-Primarna ideja ovog projekta je umrežavanje više Arduino kompatibilnih mikrokontrolera u povezanu strukturu (lanac). Svaki čvor u sistemu zadužen je za prikupljanje podataka sa lokalnog senzora i njihovo prosleđivanje fizičkim putem (serijskom vezom) do narednog čvora, sve dok podaci ne stignu do glavnog (**Master**) mikrokontrolera. Master čvor vrši agregaciju primljenih merenja i prosleđuje ih bežičnim putem (Wi-Fi) do centralne stanice, gde se podaci skladište i vizuelizuju.
+Primarna ideja ovog projekta je umrežavanje više Arduino kompatibilnih mikrokontrolera u povezanu strukturu (lanac). Svaki čvor u sistemu zadužen je za prikupljanje podataka sa lokalnog senzora i njihovo prosleđivanje fizičkim putem (serijskom vezom) do narednog čvora, sve dok podaci ne stignu do glavnog (**Master**) mikrokontrolera. Master vrši agregaciju primljenih merenja i prosleđuje ih bežičnim putem (Wi-Fi) do centralne stanice, gde se podaci skladište i vizuelizuju.
 
 U ovoj realizaciji, projekat je uspešno implementiran sa **dva mikrokontrolera** (Master i Slave) i **dva analogna senzora**:
 
-- **Master čvor (ESP8266MOD):** Prikuplja podatke sa lokalnog senzora i istovremeno asinhrono prima podatke sa Slave čvora putem UART veze. Pokreće sopstvenu Wi-Fi pristupnu tačku (Access Point) i pokreće HTTP server koji isporučuје podatke u JSON formatu.
-- **Slave čvor (Teensy 3.6):** Očitava podatke sa svog senzora i konstantno ih šalje ka Masteru preko serijskog porta.
+- **Master (ESP8266MOD):** Prikuplja podatke sa lokalnog senzora i istovremeno asinhrono prima podatke sa Slave mikrokontrolera putem UART veze. Pokreće sopstvenu Wi-Fi pristupnu tačku (Access Point) i pokreće HTTP server koji isporučuје podatke u JSON formatu.
+- **Slave (Teensy 3.6):** Očitava podatke sa svog senzora i konstantno ih šalje ka Masteru preko serijskog porta.
 - **Klijent (Laptop):** Povezuje se na generisanu Wi-Fi mrežu, podiže lokalni Apache web server i preko klijentskog koda periodično šalje HTTP GET zahteve ka API-ju mikrokontrolera, prikazujući ažurne rezultate na interaktivnom dashboard-u unutar web pretraživača.
 
 ---
@@ -16,12 +16,12 @@ U ovoj realizaciji, projekat je uspešno implementiran sa **dva mikrokontrolera*
 
 ### 1. Potrebni materijali
 
-Za uspešnu rekonstrukciju ovog eksperimenta u kućnim uslovima, potrebno je obezbediti sledeći hardver:
+Za uspešnu rekonstrukciju ovog eksperimenta, potrebno je obezbediti sledeći hardver:
 
 | Kol. | Komponenta                  | Detalji / Napomena                                                                                                 |
 | :--: | :-------------------------- | :----------------------------------------------------------------------------------------------------------------- |
 |  1x  | **ESP8266MOD**              | Master mikrokontroler sa integrisanim Wi-Fi čipom                                                                  |
-|  1x  | **Teensy 3.6**              | Slave mikrokontroler visokih performansi                                                                           |
+|  1x  | **Teensy 3.6**              | Slave mikrokontroler                                                                                               |
 |  1x  | **Protoploča (Breadboard)** | Za povezivanje komponenti                                                                                          |
 |  1x  | **Senzor pritiska**         | [Tekscan FlexiForce Load/Force familija senzora](https://www.tekscan.com/flexiforce-loadforce-sensors-and-systems) |
 |  1x  | **Senzor savijanja**        | [Tekscan FlexiForce Load/Force familija senzora](https://www.tekscan.com/flexiforce-loadforce-sensors-and-systems) |
