@@ -60,9 +60,9 @@ Nakon što ste analizirali pinove, pažljivo i precizno pratite sledeće korake 
 
 1. **Glavni naponski vod:** Izvedite liniju iz ESP8266MOD **Pin 8** na protoploču u zajedničku pozitivnu šinu (**+**). Ovo predstavlja VCC napajanje od 3.3V.
 2. **Glavni vod mase:** Izvedite liniju iz ESP8266MOD **Pin 15** na protoploču u zajedničku negativnu šinu (**-**). Ovo predstavlja masu (GND).
-3. **Napajanje Slave čvora:** Iz zajedničke pozitivne šine (**+**) izvedite džamper žicu u Teensy 3.6 na **3.3V pin** (pozicioniran iznad Pina 23). Preko ove linije Teensy dobija stabilno napajanje.
+3. **Napajanje Slave:** Iz zajedničke pozitivne šine (**+**) izvedite džamper žicu u Teensy 3.6 na **3.3V pin** (pozicioniran iznad Pina 23). Preko ove linije Teensy dobija stabilno napajanje.
 4. **Zajednička masa:** Iz zajedničke negativne šine (**-**) izvedite žicu u Teensy 3.6 na **GND pin** (pozicioniran iznad Pina 0). _Napomena: Zajednička masa između dva mikrokontrolera je kritična za eliminaciju šuma i preciznost analognih merenja._
-5. **UART komunikaciona veza:** Povežite Teensy 3.6 **Pin 1 (TX)** direktno sa ESP8266MOD **Pin 21 (RX)**. Ovo omogućava prenos podataka sa Slave na Master čvor putem UART protokola.
+5. **UART komunikaciona veza:** Povežite Teensy 3.6 **Pin 1 (TX)** direktno sa ESP8266MOD **Pin 21 (RX)**. Ovo omogućava prenos podataka sa Slave na Master putem UART protokola.
 6. **Senzor pritiska (Teensy):**
    - Iz zajedničke pozitivne šine (**+**) odvedite liniju na jedan kraj senzora pritiska.
    - Drugi kraj senzora postavite na slobodnu, nezavisnu liniju na protoploči.
